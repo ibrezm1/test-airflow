@@ -5,7 +5,7 @@ from airflow.models import Connection
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
 
-from common.utils import get_default_google_cloud_connection_id
+#from common.utils import get_default_google_cloud_connection_id
 
 default_args = {
     'owner': 'manasi',
@@ -22,7 +22,7 @@ default_args = {
 def add_gcp_connection(ds, **kwargs):
     """"Add a airflow connection for GCP"""
     new_conn = Connection(
-        conn_id=get_default_google_cloud_connection_id(),
+        conn_id="get_default_google_cloud_connection_id",
         conn_type='google_cloud_platform',
     )
     scopes = [
