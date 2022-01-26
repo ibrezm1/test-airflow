@@ -3,19 +3,19 @@ import json
 from airflow import DAG, settings
 from airflow.models import Connection
 from airflow.operators.python_operator import PythonOperator
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from common.utils import get_default_google_cloud_connection_id
 
 default_args = {
-    'owner': 'airflow',
-    'email': ['airflow@example.com'],
+    'owner': 'manasi',
     'depends_on_past': False,
-    'start_date': datetime(2001, 01, 01),
+    'start_date': datetime(2016, 4, 15),
+    'email': ['manasidalvi14@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 5,
-    'priority_weight': 1000,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=1),
 }
 
 
